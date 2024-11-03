@@ -1,0 +1,25 @@
+:root {
+	font: 1rem 'Roboto', sans-serif; 
+}
+
+body,
+body * {
+	margin: 		 unset;
+	box-sizing: 	 border-box;
+	padding: 		 unset;
+	font-size:		 unset;
+	color: 			 unset;
+	text-decoration: unset;
+}
+
+
+.section_padding{
+	padding: 80px 100px 80px 100px;
+}
+
+
+
+.section_background_dark{
+	background-color: #121212;
+}
+
