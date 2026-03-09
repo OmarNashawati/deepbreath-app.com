@@ -1,4 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
 
 document.addEventListener("DOMContentLoaded", (event) => {
   // Hero
@@ -9,33 +10,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   gsap.from(".hero_link", {
-    x: -200,
+    xPercent: -100,
+    autoAlpha: 0,
     duration: 1,
     stagger: -0.2,
   });
 
   //Qoutes
 
-  gsap.from(".js-quote", {
+  let splitQoute = SplitText.create(".js-quote", { type: "words" });
+
+  gsap.from(splitQoute.words, {
     xPercent: -100,
     duration: 1,
-    scrollTrigger: {
-      trigger: ".js-quote",
-      start: "top bottom",
-      once: true,
-    },
+    autoAlpha: 0,
+    stregger: 0.01,
+    scrollTrigger: ".js-quote",
   });
 
-  // gsap.from(".js-quote_writer", {
-  //   xPercent: 100,
-  //   duration: 2,
-  //   delay: 1,
-  //   scrollTrigger: {
-  //     trigger: ".js-quote_writer",
-  //     start: "top bottom",
-  //     once: true,
-  //   },
-  // });
+  gsap.from(".js-quote_writer", {
+    autoAlpha: 0,
+    delay: 1,
+    duration: 1,
+    scrollTrigger: ".js-quote_writer",
+  });
 
   //download
   gsap.from(".app_descreption", {
@@ -43,11 +41,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     duration: 1,
     stagger: 0.2,
     delay: 0.3,
-    scrollTrigger: {
-      trigger: ".app_descreption",
-      start: "top bottom",
-      once: true,
-    },
+    autoAlpha: 0,
+    scrollTrigger: ".app_descreption",
   });
 
   gsap.from(".googleplay_button", {
@@ -61,12 +56,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     y: -100,
     duration: 1,
     stagger: 0.2,
-    delay: 0.3,
+    delay: 0.5,
+    autoAlpha: 0,
     ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".features_item",
-      start: "top bottom",
-      once: true,
-    },
+    scrollTrigger: ".features_item",
   });
 });
